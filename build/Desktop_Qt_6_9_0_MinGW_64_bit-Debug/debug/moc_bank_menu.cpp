@@ -43,7 +43,8 @@ template <> constexpr inline auto Bank_menu::qt_create_metaobjectdata<qt_meta_ta
         "",
         "on_enter_sum_line_textChanged",
         "arg1",
-        "on_take_btn_clicked"
+        "on_take_btn_clicked",
+        "on_currency_currentTextChanged"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -55,6 +56,10 @@ template <> constexpr inline auto Bank_menu::qt_create_metaobjectdata<qt_meta_ta
         }}),
         // Slot 'on_take_btn_clicked'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_currency_currentTextChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 4 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -81,6 +86,7 @@ void Bank_menu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 0: _t->on_addto_btn_clicked(); break;
         case 1: _t->on_enter_sum_line_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->on_take_btn_clicked(); break;
+        case 3: _t->on_currency_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -105,14 +111,14 @@ int Bank_menu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }

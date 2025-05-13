@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -32,6 +33,7 @@ public:
     QLabel *label_5;
     QLineEdit *enter_sum_line;
     QLabel *label_6;
+    QComboBox *currency;
 
     void setupUi(QWidget *Bank_menu)
     {
@@ -42,7 +44,7 @@ public:
         Bank_menu->setMaximumSize(QSize(800, 600));
         label_name_surname = new QLabel(Bank_menu);
         label_name_surname->setObjectName("label_name_surname");
-        label_name_surname->setGeometry(QRect(270, 20, 381, 41));
+        label_name_surname->setGeometry(QRect(270, 20, 511, 41));
         QFont font;
         font.setPointSize(24);
         font.setBold(true);
@@ -50,7 +52,7 @@ public:
         label_name_surname->setFont(font);
         label = new QLabel(Bank_menu);
         label->setObjectName("label");
-        label->setGeometry(QRect(20, 90, 291, 51));
+        label->setGeometry(QRect(20, 90, 341, 51));
         QFont font1;
         font1.setPointSize(26);
         label->setFont(font1);
@@ -62,31 +64,71 @@ public:
         label_2->setFont(font2);
         label_3 = new QLabel(Bank_menu);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(90, 210, 151, 51));
+        label_3->setGeometry(QRect(20, 210, 221, 51));
         QFont font3;
         font3.setPointSize(16);
         label_3->setFont(font3);
         addto_btn = new QPushButton(Bank_menu);
         addto_btn->setObjectName("addto_btn");
         addto_btn->setGeometry(QRect(190, 290, 171, 81));
+        QPalette palette;
+        QBrush brush(QColor(170, 255, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush);
+        QBrush brush1(QColor(0, 90, 0, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush1);
+        QBrush brush2(QColor(0, 85, 0, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush2);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        addto_btn->setPalette(palette);
         QFont font4;
         font4.setPointSize(18);
         font4.setItalic(true);
         addto_btn->setFont(font4);
+        addto_btn->setStyleSheet(QString::fromUtf8("background-color: rgb(170, 255, 0);"));
         take_btn = new QPushButton(Bank_menu);
         take_btn->setObjectName("take_btn");
         take_btn->setGeometry(QRect(410, 290, 171, 81));
+        QPalette palette1;
+        QBrush brush3(QColor(255, 0, 0, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::Button, brush3);
+        QBrush brush4(QColor(117, 0, 2, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette1.setBrush(QPalette::Active, QPalette::ButtonText, brush4);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush3);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush3);
+        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush3);
+        palette1.setBrush(QPalette::Inactive, QPalette::ButtonText, brush4);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush3);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush3);
+        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush3);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush3);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush3);
+        take_btn->setPalette(palette1);
         take_btn->setFont(font4);
+        take_btn->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);"));
         BAN = new QLabel(Bank_menu);
         BAN->setObjectName("BAN");
-        BAN->setGeometry(QRect(340, 550, 651, 41));
+        BAN->setGeometry(QRect(440, 550, 651, 41));
         QFont font5;
         font5.setPointSize(16);
         font5.setBold(true);
         BAN->setFont(font5);
         label_bill = new QLabel(Bank_menu);
         label_bill->setObjectName("label_bill");
-        label_bill->setGeometry(QRect(320, 80, 411, 71));
+        label_bill->setGeometry(QRect(380, 80, 411, 71));
         QFont font6;
         font6.setPointSize(36);
         font6.setBold(true);
@@ -106,8 +148,20 @@ public:
         enter_sum_line->setFont(font8);
         label_6 = new QLabel(Bank_menu);
         label_6->setObjectName("label_6");
-        label_6->setGeometry(QRect(10, 550, 331, 41));
+        label_6->setGeometry(QRect(10, 550, 431, 41));
         label_6->setFont(font5);
+        currency = new QComboBox(Bank_menu);
+        currency->addItem(QString());
+        currency->addItem(QString());
+        currency->addItem(QString());
+        currency->addItem(QString());
+        currency->setObjectName("currency");
+        currency->setGeometry(QRect(570, 210, 81, 51));
+        QFont font9;
+        font9.setPointSize(14);
+        font9.setBold(false);
+        font9.setItalic(false);
+        currency->setFont(font9);
 
         retranslateUi(Bank_menu);
 
@@ -127,6 +181,11 @@ public:
         label_bill->setText(QCoreApplication::translate("Bank_menu", "0 ", nullptr));
         label_5->setText(QCoreApplication::translate("Bank_menu", "\320\224\320\276\320\261\321\200\320\276 \320\277\320\276\320\266\320\260\320\273\320\276\320\262\320\260\321\202\321\214,", nullptr));
         label_6->setText(QCoreApplication::translate("Bank_menu", "\320\222\320\260\321\210 \321\203\320\275\320\270\320\272\320\260\320\273\321\214\320\275\321\213\320\271 \320\275\320\276\320\274\320\265\321\200 \321\201\321\207\321\221\321\202\320\260:  ", nullptr));
+        currency->setItemText(0, QCoreApplication::translate("Bank_menu", "BYN", nullptr));
+        currency->setItemText(1, QCoreApplication::translate("Bank_menu", "USD", nullptr));
+        currency->setItemText(2, QCoreApplication::translate("Bank_menu", "RUB", nullptr));
+        currency->setItemText(3, QCoreApplication::translate("Bank_menu", "EUR", nullptr));
+
     } // retranslateUi
 
 };

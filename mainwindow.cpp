@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "ui_bank_menu.h"
+//#include "ui_bank_menu.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <QMessageBox>
@@ -9,7 +9,64 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    QPixmap bkgnd("glavka.jpg");
+    // Масштабируем изображение под размер окна с сохранением пропорций (обрезая лишнее)
+    bkgnd = bkgnd.scaled(800, 600, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+
+    this->setPalette(palette);
+
+
+    this->setStyleSheet(
+        "QPushButton {"
+        "   background-color: rgba(255, 255, 255, 70%);"
+        "   color: black;"
+        "   border: 1px solid gray;"
+        "}"
+        "QPushButton:hover {"
+        "   background-color: rgba(255, 255, 255, 70%);"
+        "}"
+        "QPushButton:pressed {"
+        "   background-color: rgba(255, 255, 255, 50%);"
+        "}"
+
+        // Стиль для QLabel
+        "QLabel {"
+        "   background-color: rgba(255, 255, 255, 75%);"  // Полупрозрачный белый фон
+        "   color: black;"                  // Чёрный текст
+        "}"
+
+        // Стиль для QTextBrowser
+        "QTextBrowser {"
+        "   color: black;"                  // Чёрный текст
+        "   background-color: rgba(255, 255, 255, 75%);"  // Полупрозрачный фон
+        "   border: 1px solid gray;"        // Граница (опционально)
+        "}"
+        "QMessageBox {"
+        "   background-color: rgba(255, 255, 255, 100%);"
+        "   color: white;"
+        "   border: 1px solid gray;"
+        "}"
+
+        "QSplitter::handle {"
+        "   background: transparent;"  // Прозрачный разделитель
+        "}"
+        );
+
+
+
+    /*
+
+    QPalette P1;
+    P1.setBrush(QPalette::Window,QBrush(QPixmap("glavka.jpg")));
+    setPalette(P1);
+
+     */
+
+
     ui->setupUi(this);
+
    // qApp->installEventFilter(this);
 }
 

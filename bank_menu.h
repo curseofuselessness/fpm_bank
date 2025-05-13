@@ -24,6 +24,8 @@ private slots:
 
     void on_take_btn_clicked();
 
+    void on_currency_currentTextChanged(const QString &arg1);
+
 private:
     Ui::Bank_menu *ui;
 };

@@ -15,8 +15,7 @@ SOURCES += \
 
 HEADERS += \
     bank_menu.h \
-    mainwindow.h \
-    user_info.h
+    mainwindow.h
 
 FORMS += \
     bank_menu.ui \
