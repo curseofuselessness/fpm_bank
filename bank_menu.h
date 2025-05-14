@@ -26,6 +26,8 @@ private slots:
 
     void on_currency_currentTextChanged(const QString &arg1);
 
+    void on_operation_list_indexesMoved(const QModelIndex &indexes);
+
 private:
     Ui::Bank_menu *ui;
 };

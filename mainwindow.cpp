@@ -74,7 +74,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 void MainWindow::on_enter_name_line_textChanged(const QString &arg1)
 {
     u_name = arg1;
@@ -88,7 +87,7 @@ void MainWindow::on_enter_surname_line_textChanged(const QString &arg1)
 void MainWindow::on_enter_pass_line_textChanged(const QString &arg1)
 {
     u_password = arg1;
-    qDebug() << u_password << " f";
+    qDebug() << u_password << " *";
 }
 
 void MainWindow::on_enter_pass_twice_line_2_textChanged(const QString &arg1)

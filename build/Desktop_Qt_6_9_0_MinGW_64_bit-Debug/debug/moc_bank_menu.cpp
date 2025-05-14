@@ -44,7 +44,10 @@ template <> constexpr inline auto Bank_menu::qt_create_metaobjectdata<qt_meta_ta
         "on_enter_sum_line_textChanged",
         "arg1",
         "on_take_btn_clicked",
-        "on_currency_currentTextChanged"
+        "on_currency_currentTextChanged",
+        "on_operation_list_indexesMoved",
+        "QModelIndex",
+        "indexes"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -59,6 +62,10 @@ template <> constexpr inline auto Bank_menu::qt_create_metaobjectdata<qt_meta_ta
         // Slot 'on_currency_currentTextChanged'
         QtMocHelpers::SlotData<void(const QString &)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QString, 4 },
+        }}),
+        // Slot 'on_operation_list_indexesMoved'
+        QtMocHelpers::SlotData<void(const QModelIndex &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 8, 9 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -87,6 +94,7 @@ void Bank_menu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 1: _t->on_enter_sum_line_textChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->on_take_btn_clicked(); break;
         case 3: _t->on_currency_currentTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        //case 4: _t->on_operation_list_indexesMoved((*reinterpret_cast< std::add_pointer_t<QModelIndex>>(_a[1]))); break;
         default: ;
         }
     }
@@ -111,14 +119,14 @@ int Bank_menu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

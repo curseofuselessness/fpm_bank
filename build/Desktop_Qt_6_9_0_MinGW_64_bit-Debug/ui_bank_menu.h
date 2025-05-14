@@ -14,6 +14,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -34,6 +35,7 @@ public:
     QLineEdit *enter_sum_line;
     QLabel *label_6;
     QComboBox *currency;
+    QListWidget *listWidget;
 
     void setupUi(QWidget *Bank_menu)
     {
@@ -121,10 +123,11 @@ public:
         take_btn->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);"));
         BAN = new QLabel(Bank_menu);
         BAN->setObjectName("BAN");
-        BAN->setGeometry(QRect(440, 550, 651, 41));
+        BAN->setGeometry(QRect(330, 550, 651, 41));
         QFont font5;
         font5.setPointSize(16);
-        font5.setBold(true);
+        font5.setBold(false);
+        font5.setUnderline(false);
         BAN->setFont(font5);
         label_bill = new QLabel(Bank_menu);
         label_bill->setObjectName("label_bill");
@@ -162,6 +165,13 @@ public:
         font9.setBold(false);
         font9.setItalic(false);
         currency->setFont(font9);
+        listWidget = new QListWidget(Bank_menu);
+        listWidget->setObjectName("listWidget");
+        listWidget->setGeometry(QRect(190, 390, 391, 141));
+        QFont font10;
+        font10.setPointSize(14);
+        font10.setUnderline(true);
+        listWidget->setFont(font10);
 
         retranslateUi(Bank_menu);
 

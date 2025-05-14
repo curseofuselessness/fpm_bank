@@ -1,3 +1,4 @@
+#include<QDateTime>
 #include "bank_menu.h"
 #include "mainwindow.cpp"
 #include "ui_bank_menu.h"
@@ -33,9 +34,6 @@ Bank_menu::~Bank_menu()
     delete ui;
 }
 
-
-
-
 void Bank_menu::on_addto_btn_clicked()
 {
 
@@ -43,8 +41,17 @@ void Bank_menu::on_addto_btn_clicked()
         u_money += temp_money;
         u_money_BYN += temp_money / currency_mul;
 
+        QDateTime currentDateTime = QDateTime::currentDateTime();
+        QString temp_money_str =QString::number(temp_money);
+        QString str_nowdate = currentDateTime.toString("dd.MM.yyyy hh:mm:ss");
 
-        ui->label_bill->setText(QString::number(u_money) + " " + currency);
+        const QString operation_text = "Добавлено " + temp_money_str + " " + currency + " " + str_nowdate;
+
+        ui->listWidget->addItem(operation_text);
+
+
+            ui->label_bill->setText(QString::number(u_money) + " " + currency);
+
     }
     else{
          QMessageBox::warning(this, "Ошибка", "Некорректная введенная или конечная сумма");
@@ -52,8 +59,6 @@ void Bank_menu::on_addto_btn_clicked()
 
 
 }
-//u_money_BYN  = u_money / currency_mul;
-// = u_money_BYN * currency_mul;
 void Bank_menu::on_take_btn_clicked()
 {
 
@@ -61,6 +66,13 @@ void Bank_menu::on_take_btn_clicked()
         u_money -= temp_money;
          u_money_BYN -= temp_money / currency_mul;
 
+        QDateTime currentDateTime = QDateTime::currentDateTime();
+        QString temp_money_str =QString::number(temp_money);
+        QString str_nowdate = currentDateTime.toString("dd.MM.yyyy hh:mm:ss");
+
+        const QString operation_text = "Снято " + temp_money_str + " " + currency + " " + str_nowdate;
+
+        ui->listWidget->addItem(operation_text);
        ui->label_bill->setText(QString::number(u_money) + " " + currency);
     }
     else{
@@ -72,12 +84,8 @@ void Bank_menu::on_enter_sum_line_textChanged(const QString &arg1)
 {
     QString temp = arg1;
     temp_money = temp.toInt();
+
 }
-
-
-
-
-
 void Bank_menu::on_currency_currentTextChanged(const QString &arg1)
 {
     // u_money_BYN = u_money / currency_mul;
